@@ -4,52 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Area</title>
-    <link href="tailwind.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 
-    <!-- Header -->
-    <header class="bg-blue-600 p-4 text-white">
-        <div class="container mx-auto">
-            <h1 class="text-2xl">Client Portal</h1>
-        </div>
-    </header>
-
-    <div class="flex">
-        <!-- Sidebar -->
-        <nav class="w-1/4 bg-white shadow-md h-screen p-4">
-            <ul>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-600 hover:underline">Dashboard</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-600 hover:underline">Profile</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-600 hover:underline">Settings</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="text-blue-600 hover:underline">Logout</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="flex-1 p-4">
-            <div class="container mx-auto">
-                <h2 class="text-xl font-bold mb-4">Welcome to the Client Area</h2>
-                <p class="mb-4">This is the main content area where you can put information relevant to the client.</p>
-                <div class="bg-white p-4 rounded shadow">
-                    <h3 class="text-lg font-bold mb-2">Recent Activity</h3>
-                    <ul>
-                        <li class="mb-2">Activity 1</li>
-                        <li class="mb-2">Activity 2</li>
-                        <li class="mb-2">Activity 3</li>
-                    </ul>
-                </div>
+<div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center">Client Area</h2>
+        <?php
+        // Ini hanya contoh statis, biasanya data ini akan diambil dari database
+        $user = [
+            'name' => 'John Doe',
+            'email' => 'john.doe@example.com',
+            'joined' => 'January 15, 2023',
+        ];
+        ?>
+        <div class="space-y-4">
+            <div class="text-gray-700">
+                <span class="font-semibold">Name:</span>
+                <span><?php echo htmlspecialchars($user['name']); ?></span>
             </div>
-        </main>
+            <div class="text-gray-700">
+                <span class="font-semibold">Email:</span>
+                <span><?php echo htmlspecialchars($user['email']); ?></span>
+            </div>
+            <div class="text-gray-700">
+                <span class="font-semibold">Joined:</span>
+                <span><?php echo htmlspecialchars($user['joined']); ?></span>
+            </div>
+        </div>
+        <div class="mt-6 flex justify-end">
+            <a href="logout.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Logout</a>
+        </div>
     </div>
+</div>
 
 </body>
 </html>
